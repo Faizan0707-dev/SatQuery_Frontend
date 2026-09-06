@@ -10,7 +10,7 @@ import uuid
 
 cookies = EncryptedCookieManager(
     prefix="mychatapp_",
-    password=st.secrets["COOKIE_PASSWORD"]
+    password=os.environ.get("COOKIE_PASSWORD", "default_fallback_password")
 )
 if not cookies.ready():
     st.stop()
